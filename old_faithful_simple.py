@@ -18,13 +18,15 @@ import time
     Grand (13)
     
 """
-url = "http://www.geysertimes.org/api/v2/entries_latest/2;4;5;7;13"
+url = "http://www.geysertimes.org/api/v2/entries_latest/2;4;5;7;13?ISO=0"
 
 content = urllib2.urlopen(url).read()
 myJSON = json.loads(content)
 
 #Old Faithful entry is the first in the entries list
-old_faithful = myJSON['entries'][0]
+entries = myJSON['entries']
+
+old_faithful = entries[0]
 
 window = 10
 
@@ -42,11 +44,13 @@ if old_faithful['ie'] == 1:
 
 myTime = old_faithful['time']
 
+tz_offset = -7
+
 prediction = int(old_faithful['time']) + (interval * 60)
-out_prediction = time.strftime('%Y-%m-%d %H:%M', time.gmtime(prediction))
+out_prediction = time.strftime('%Y-%m-%d %H:%M', time.gmtime(prediction + tz_offset * 60 * 60))
 
 
 
-print "Old Faithful is predicted for %s +/- %s minutes" % (out_prediction, window)
+print "Old Faithful is predicted for %s +/- %s minutes, local time" % (out_prediction, window)
 print "Send to GeyserTimes.org: {'prediction': %s, 'window': %s}" % (prediction  , window)
 
