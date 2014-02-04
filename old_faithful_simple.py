@@ -44,7 +44,7 @@ predict('Grand',myJSON['entries'][4])
 
 def predict(geyser,entry):
 
-  myTime = entry['time']
+  myTime = int(entry['time'])
   
   if entry['min'] == 1 and params[geyser]['interval_min']:
       interval = params[geyser]['interval_min'] #minutes
