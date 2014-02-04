@@ -25,18 +25,19 @@ myJSON = json.loads(content)
 
 #dictionary of prediciton parameters
 #NPS values as of January 2014
+#Castle needs its own method
 params = {
   'Old Faithful': {'interval_min': 62, 'interval_max': 95, 'window' : 10, 'ie_interval_adjustment': 2, 'ie_window_adj': 1},
-  'Daisy': {'interval_min': 62, 'interval_max': 95, 'window' : 10, 'ie_interval_adjustment': 2, 'ie_window_adj': 1},
-  'Castle': {'interval_min': 62, 'interval_max': 95, 'window' : 10, 'ie_interval_adjustment': 2, 'ie_window_adj': 1},
-  'Riverside': {'interval_min': 62, 'interval_max': 95, 'window' : 10, 'ie_interval_adjustment': 2, 'ie_window_adj': 1},
-  'Grand': {'interval_min': 62, 'interval_max': 95, 'window' : 10, 'ie_interval_adjustment': 2, 'ie_window_adj': 1}
+  'Daisy': {'interval_min': 2.75 * 60, 'interval_max': 2.75 * 60, 'window' : 15, 'ie_interval_adjustment': 2, 'ie_window_adj': 1},
+  #'Castle': {'interval_min': 62, 'interval_max': 95, 'window' : 10, 'ie_interval_adjustment': 2, 'ie_window_adj': 1},
+  'Riverside': {'interval_min': 6 * 60, 'interval_max': 6 * 60, 'window' : 30, 'ie_interval_adjustment': 15, 'ie_window_adj': 10},
+  'Grand': {'interval_min': 7.5 * 60, 'interval_max': 7.5 * 60, 'window' : 1.5 * 60, 'ie_interval_adjustment': 5, 'ie_window_adj': 10}
   }
 
 
 predict('Old Faithful',myJSON['entries'][0])
 predict('Daisy',myJSON['entries'][1])
-predict('Castle',myJSON['entries'][2])
+#predict('Castle',myJSON['entries'][2])
 predict('Riverside',myJSON['entries'][3])
 predict('Grand',myJSON['entries'][4])
 
