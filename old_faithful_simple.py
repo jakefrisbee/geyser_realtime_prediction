@@ -13,7 +13,7 @@ import time
     Grand (13)
     
 """
-url = "http://www.geysertimes.org/api/v2/entries_latest/2;4;5;7;13"
+url = "http://www.geysertimes.org/api/v3/entries_latest/2;4;5;7;13"
 
 content = urllib2.urlopen(url).read()
 myJSON = json.loads(content)
